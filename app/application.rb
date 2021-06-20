@@ -6,11 +6,10 @@ class Application
     req = Rack::Request.new(env)
     
     if req.path.match(/items/)
-      item = req.path.split(/items\//).last.
-      
-      binding.pry
+      item = @@items.detect{|i| i.name == req.path.split(/items\//).last}
+    
       if @@items.include?(item)
-        resp.write "#{@@items.detect{|i| i.name == item}.price}"      
+        resp.write item.price      
       else
         resp.write "Item not found"
         resp.status = 400
