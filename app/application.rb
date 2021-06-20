@@ -6,7 +6,7 @@ class Application
     req = Rack::Request.new(env)
     
     if req.path.match(/items/)
-      item = req.path.split(/items\//).last
+      item = req.path.split(/items\//).last.
       
       binding.pry
       if @@items.include?(item)
