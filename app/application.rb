@@ -9,7 +9,7 @@ class Application
       item = req.path.split(/items\//).last
       
       if @@items.include?(item)
-        resp.write @@items.detect{|i| i.name == item}.price
+        resp.write "#{@@items.detect{|i| i.name == item}.price}"      
       else
         resp.write "Item not found"
         resp.status = 400
