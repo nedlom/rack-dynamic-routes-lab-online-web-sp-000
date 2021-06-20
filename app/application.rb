@@ -11,7 +11,7 @@ class Application
       binding.pry
       
       if @@items.include?(item)
-        resp.write item.price
+        resp.write @@items.detect{|i| i.name == item}.price
       else
         resp.write "Item not found"
         resp.status = 400
